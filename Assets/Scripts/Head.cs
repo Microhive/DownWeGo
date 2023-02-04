@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Head : MonoBehaviour
 {
@@ -10,19 +7,26 @@ public class Head : MonoBehaviour
     private Vector3 targetPos;
     [SerializeField] private lr_LineController line;
     private bool hasClicked = false;
-    public float maxTravelDistance = 1f;
+    public float maxTravelDistance = 1.5f;
+
+    public int MaxHealth = 100;
+    public int CurrentHealth = 80;
+    public int HealthCost = 5;
+
+    public HealthBar healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
         targetPos = transform.position;
+        healthBar.SetMaxHealth(MaxHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
         // Head face click
-        if (Input.GetMouseButtonDown(0) && !hasClicked)
+        if (Input.GetMouseButtonDown(0) && !hasClicked && CurrentHealth > 0)
         {
             hasClicked = true;
             var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -39,6 +43,7 @@ public class Head : MonoBehaviour
             this.targetPos = endPosition;
 
             line.AddPointToLine();
+            SubtractHealth();
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -47,9 +52,11 @@ public class Head : MonoBehaviour
         }
 
         transform.position = Vector3.MoveTowards(transform.position, targetPos, movespeed * Time.deltaTime);
+    }
 
-
-        // Move head
-        //transform.Translate(userDirection * movespeed * Time.deltaTime);
+    private void SubtractHealth()
+    {
+        CurrentHealth = CurrentHealth - HealthCost;
+        healthBar.SetHealth(CurrentHealth);
     }
 }

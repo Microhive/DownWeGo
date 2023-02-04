@@ -59,4 +59,10 @@ public class Head : MonoBehaviour
         CurrentHealth = CurrentHealth - HealthCost;
         healthBar.SetHealth(CurrentHealth);
     }
+
+    public void AddHealth(float health)
+    {
+        CurrentHealth = CurrentHealth + (int)health;
+        healthBar.SetHealth(CurrentHealth);
+    }
 }

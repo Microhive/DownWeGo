@@ -7,6 +7,7 @@ public class Coordinator : MonoBehaviour
     public GameObject startUI;
     public GameObject player;
     public GameObject healthBarUI;
+    public GameObject depthMeterUI;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class Coordinator : MonoBehaviour
     {
         startUI.SetActive(false);
         healthBarUI.SetActive(true);
+        depthMeterUI.SetActive(true);
         player.SetActive(true);
     }
 

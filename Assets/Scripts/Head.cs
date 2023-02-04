@@ -1,4 +1,6 @@
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Head : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class Head : MonoBehaviour
     public int HealthCost = 5;
 
     public HealthBar healthBar;
+
+    public Camera mainCamera;
+    public float transitionDuration = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +49,8 @@ public class Head : MonoBehaviour
 
             line.AddPointToLine();
             SubtractHealth();
+
+            this.FollowCamera(targetPos);
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -64,5 +71,10 @@ public class Head : MonoBehaviour
     {
         CurrentHealth = CurrentHealth + (int)health;
         healthBar.SetHealth(CurrentHealth);
+    }
+
+    private void FollowCamera(Vector3 targetPos)
+    {
+        mainCamera.transform.DOMoveY(targetPos.y, transitionDuration);
     }
 }

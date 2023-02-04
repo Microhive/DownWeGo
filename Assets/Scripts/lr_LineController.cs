@@ -40,7 +40,7 @@ public class lr_LineController : MonoBehaviour
 
     public void AddPointToLine()
     {
-        GameObject gameObject1 = GameObject.Instantiate(rootPrefab, lr.GetPosition(points.Count - 1), Quaternion.identity);
+        GameObject gameObject1 = GameObject.Instantiate(rootPrefab, lr.GetPosition(points.Count - 1), Quaternion.Euler(0.0f, 0.0f, Random.Range(0f, 360.0f)));
 
         this.points.Insert(this.points.Count - 1, gameObject1.transform);
         lr.positionCount = points.Count;

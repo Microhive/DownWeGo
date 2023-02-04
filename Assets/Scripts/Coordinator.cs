@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Coordinator : MonoBehaviour
 {
+    public GameObject startUI;
+    public GameObject player;
+    public GameObject healthBarUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +18,23 @@ public class Coordinator : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void StartGame()
+    {
+        startUI.SetActive(false);
+        healthBarUI.SetActive(true);
+        player.SetActive(true);
+    }
+
+    public void ViewScore()
+    {
+
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
 }

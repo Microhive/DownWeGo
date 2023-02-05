@@ -77,7 +77,7 @@ public class Head : MonoBehaviour
 
     public void AddHealth(float health)
     {
-        CurrentHealth = CurrentHealth + (int)health;
+        CurrentHealth = Mathf.Min(CurrentHealth + (int)health, MaxHealth);
         healthBar.SetHealth(CurrentHealth);
     }
 

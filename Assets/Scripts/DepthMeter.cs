@@ -9,7 +9,7 @@ public class DepthMeter : MonoBehaviour
     public TextMeshProUGUI text;
     public GameObject startPosition;
     public GameObject endPosition;
-    public float ratio = 1f;
+    public float ratio = 2f;
 
     public float depth;
 

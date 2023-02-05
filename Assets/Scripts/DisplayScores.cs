@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using TMPro;
-using static UnityEditor.Progress;
 
 namespace Assets.Scripts
 {

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -65,6 +66,13 @@ public class Head : MonoBehaviour
     {
         CurrentHealth = CurrentHealth - HealthCost;
         healthBar.SetHealth(CurrentHealth);
+
+        if (CurrentHealth <= 0)
+        {
+            GameObject gameObject1 = GameObject.FindGameObjectWithTag(ScoreTracker.ScoreTag);
+            var depth = GameObject.Find("DepthMeter").transform.GetComponent<DepthMeter>().depth;
+            gameObject1.GetComponent<ScoreTracker>().AddScore(depth);
+        }
     }
 
     public void AddHealth(float health)

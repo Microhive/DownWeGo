@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTapped: 0
-  waterAmount: 20
+  waterAmount: 30
   targetSpriteRenderer: {fileID: 88456350588410391}
   targetColor: {r: 0.3584906, g: 0.28092077, b: 0.2282841, a: 1}
   tweenDuration: 3
